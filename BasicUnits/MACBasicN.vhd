@@ -12,23 +12,23 @@ use work.ParameterPkg.all;
 --        doesn't seem so good.
 
 entity MACBasicN is
-    Generic(Int_length : Integer;   -- length of the integer part, default is set to 12 bits
-            Frac_length : Integer);  -- length of the fractional part, default set to 20 bits
-                                 -- the total length is then N + M, by default 32 bits
-    Port(a, b, c : IN data_type;
-         MAC     : OUT data_type
+    Generic(int_length : Integer;   -- length of the integer part
+            frac_length : Integer);  -- length of the fractional part
+                                 -- the total length N is then the sum of the above two
+    Port(a_in, b_in, c_in : IN data_type;
+         MAC_out     : OUT data_type
         );
 end MACBasicN;
 
 architecture Behavioral of MACBasicN is
-Signal MUL : std_logic_vector (2*(Int_length+Frac_length)-1 downto 0);
+Signal MUL_sig : std_logic_vector (2 * (int_length + frac_length) - 1 downto 0);
 -- N bits times N bits gives 2N bits
 begin
-MUL <= a * b;  -- MUL is composed of 1) integer part, first 2N-1 bits and
+MUL_sig <= a_in * b_in;  -- MUL is composed of 1) integer part, first 2N-1 bits and
                -- 2) fraction, last 2M bits
-MAC <= MUL (2 * (Int_length + Frac_length) - 1) & MUL (2 * Frac_length + 
-Int_length - 2 downto 2 * Frac_length) & MUL (2 * Frac_length - 1 downto Frac_length) + c;
---          sign bit                        integer part                                            fractional part
+MAC_out <= MUL_sig(2 * (int_length + frac_length) - 1)  -- sign bit
+    & MUL_sig(2 * Frac_length + int_length - 2 downto 2 * frac_length)  -- integer
+    & MUL_sig(2 * Frac_length - 1 downto Frac_length) + c_in; -- fractional
 --  Note 1: integer part may have overflow problem. Suppose we have originally
 --      N bits for the integer part.
 --      The range of the theoretical result of multiplication should have 2N-1
