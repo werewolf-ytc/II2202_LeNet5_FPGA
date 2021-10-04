@@ -1,3 +1,3 @@
 # II2202_LeNet5_FPGA
 
-Ｔｈｉｓ　ｉｓ　ａ　ｓｏｕｒｃｅ　ｃｏｄｅ　ｆｏｌｄｅｒ　ｆｏｒ　ｔｈｅ　ｃｏｕｒｓｅ　ＩＩ２２０２　ａｔ　ＫＴＨ．
+This is a source code folder for course II2202 at KTH.
