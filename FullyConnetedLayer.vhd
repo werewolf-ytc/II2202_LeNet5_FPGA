@@ -21,7 +21,7 @@ end FullyConnectedLayer;
 Architecture FullyParallel of FullyConnectedLayer is
   signal Input_data_sig, Input_weight_sig : Narray (My_number_of_inputs downto 0);
   signal REG_sig : data_type;
-  signal Out_arr_sig		  : Narray (0 to Ninput+1);
+  signal Out_arr_sig		  : Narray (0 to My_number_of_inputs + 1);
     component MACBasicN is
 		Generic(
 			Int_length :integer;

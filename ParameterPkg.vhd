@@ -2,6 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_signed.all;
 
+-- This package specifies the parameters for LeNet-5.
 package ParameterPkg is 
 	constant My_number_of_inputs	: integer := 4; --Number of Inputs
 	constant My_int_length	: integer := 3; --integer part of fixed points number
