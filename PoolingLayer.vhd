@@ -16,23 +16,23 @@ entity PoolingLayer is
             downto 0);
             
         matrix_out : OUT Narray (
-            (input_matrix_width - filter_width + stride ) / stride  -- output width
-            ** 2 -1 downto 0)
+        ((input_matrix_width - filter_width + stride ) / stride)  -- output width
+        ** 2 -1 downto 0)
         );
 end PoolingLayer;
 
 architecture MaxPoolBehavioral of PoolingLayer is
 CONSTANT output_matrix_width : INTEGER
     := (input_matrix_width - filter_width + stride ) / stride;
-    
+
 -- Max pool the input matrix
 FUNCTION MaxPoolingFunction (
     matrix_in : IN Narray (input_matrix_width * input_matrix_width - 1
             downto 0)
     ) RETURN Narray IS
     VARIABLE matrix_return : Narray (
-            (input_matrix_width - filter_width + stride ) / stride  -- output width
-            ** 2 -1 downto 0);
+    ((input_matrix_width - filter_width + stride ) / stride)  -- output width
+    ** 2 - 1 downto 0);
     VARIABLE local_max_var : data_type;        
 BEGIN
     for i in output_matrix_width - 1 downto 0 loop
