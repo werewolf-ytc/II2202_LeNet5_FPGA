@@ -24,7 +24,7 @@ end FullyConnectedLayerUnit;
 Architecture FullyParallel of FullyConnectedLayerUnit is
   signal Input_data_sig, Input_weight_sig : Narray (vector_length downto 0);
   signal REG_sig : data_type;
-  signal Out_arr_sig		  : Narray (0 to vector_length + 1);
+  signal Out_arr_sig : Narray (vector_length + 1 downto 0);-- Narray (0 to vector_length + 1);
     component MACBasicN is
 		Generic(
 			Int_length :integer;
