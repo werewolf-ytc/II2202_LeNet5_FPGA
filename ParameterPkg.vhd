@@ -9,8 +9,8 @@ package ParameterPkg is
 	constant My_frac_length	: integer := 5; --fractional part of fixed points number
 	subtype data_type is std_logic_vector
 	    (My_int_length + My_frac_length - 1 downto 0);
+	-- an array of data
 	type Narray is array (natural range <>) of data_type;
-	    -- an array of data
 
 -- Matrix is stored as vectors, in the form of
 -- a1 | a2
