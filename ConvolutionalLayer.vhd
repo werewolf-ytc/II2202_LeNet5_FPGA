@@ -19,7 +19,7 @@ entity ConvolutionalLayer is
         kernel_in : IN Narray (kernel_width * kernel_width - 1
             downto 0);
         matrix_out : OUT Narray (
-            (input_matrix_width - kernel_width + stride ) / stride  -- output width
+            ((input_matrix_width - kernel_width + stride ) / stride)  -- output width
             ** 2 -1 downto 0)
         );
 end ConvolutionalLayer;
@@ -36,17 +36,18 @@ FUNCTION ConvolutionFunction (
             downto 0)
     ) RETURN Narray IS
     VARIABLE matrix_return : Narray (
-            (input_matrix_width - kernel_width + stride ) / stride  -- output width
+            ((input_matrix_width - kernel_width + stride ) / stride)  -- output width
             ** 2 -1 downto 0);
     VARIABLE local_feature : data_type;        
 BEGIN
     for i in output_matrix_width - 1 downto 0 loop
-        for j in output_matrix_width - 1 downto 0 loop    
+        for j in output_matrix_width - 1 downto 0 loop
+            local_feature  := x"00";
             for p in kernel_width - 1 downto 0 loop
                 for q in kernel_width - 1 downto 0 loop                
                     local_feature := matrix_in(Matrix2VectorIndexConvertion(
-                        input_matrix_width, stride * i + p, stride * j + q))* kernel_in(Matrix2VectorIndexConvertion(
-                        kernel_width, p, q)) + local_feature;
+                        input_matrix_width, stride * i + p, stride * j + q))(7 downto 4)* kernel_in(Matrix2VectorIndexConvertion(
+                        kernel_width, p, q))(7 downto 4) + local_feature;
                 end loop;
             end loop;
         matrix_return(Matrix2VectorIndexConvertion(
