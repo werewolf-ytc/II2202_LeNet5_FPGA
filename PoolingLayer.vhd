@@ -4,9 +4,9 @@ use work.ParameterPkg.all;
 
 entity PoolingLayer is
     Generic (
-        input_matrix_width : integer;
-        filter_width : Integer;
-        stride : Integer
+        input_matrix_width : integer := 4;
+        filter_width : Integer := 2;
+        stride : Integer := 2
         );
     Port (
         clk_in : IN std_logic;
