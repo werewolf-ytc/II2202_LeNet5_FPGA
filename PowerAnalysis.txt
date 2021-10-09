@@ -1,0 +1,26 @@
+LeNet-5
+On-Chip Power
+
+Pooling Layer (MaxPoolBehavioral)
+    Dynamic: 24.903 W
+    Signals: 2.757 W
+    Logic: 1.403 W
+    I/O: 20.743 W
+
+Pooling Layer (Pipelining Protocol)
+    Dynamic: 0.243 W
+    Signals: 0.106 W
+    Logic: 0.093 W
+    I/O: 0.044 W
+
+FullyConnected Layer (Fully Parallel)
+    Dynamic: 49.706 W
+    Signal: 9.554 W
+    Logic: 8.886 W
+    I/O: 31.267 W
+
+Convolution Layer
+    Dynamic: 107.276 W
+    Signals: 18.831 W
+    Logic: 19.403 W
+    I/O: 69.043 W
