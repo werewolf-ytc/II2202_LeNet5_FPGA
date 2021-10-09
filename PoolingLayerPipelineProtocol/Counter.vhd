@@ -12,7 +12,7 @@ Entity Counter is
 End Counter;
 
 Architecture LoopCounter of Counter is
-Constant LoopValue : INTEGER := 3;
+Constant LoopValue : INTEGER := 3; -- counts LoopValue + 1 turns
 Begin
     Process (clk_in)
     Variable count_var : Integer Range 0 to 255;

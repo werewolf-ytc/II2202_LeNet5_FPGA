@@ -24,3 +24,21 @@ Convolution Layer
     Signals: 18.831 W
     Logic: 19.403 W
     I/O: 69.043 W
+
+Convolution Timed
+    Dynamic: 11.981 W
+    Signals: 6.785 W
+    Logic: 4.481 W
+    I/O: 0.716 W
+
+Convolution One MAC Unit
+    Dynamic: 1.436 W
+    Signals: 0.561 W
+    Logic: 0.777 W
+    I/O: 0.098 W
+
+Convolution Layer with One MAC
+    Dynamic: 14.255 W
+    Signals: 0.960 W
+    Logic: 1.026 W
+    I/O: 12.270 W
